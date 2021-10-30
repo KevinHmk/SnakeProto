@@ -28,8 +28,8 @@ message UpdateResp {
     string Conf             = 10;
 }
 
-//http://xxx:xx/login/login
-//账号登录/123
+//http://xxx:xx/login/login/
+//账号登录 可用url http://xxx:xx/login/login?act=?&pwd=?
 message LoginReq {
   string Account 	= 1;  	//账号
   string Passwd 	= 2;    //密码
@@ -55,7 +55,7 @@ message LoginResp {
 }
 
 //http://xxx:xx/login/reg/
-//账号注册
+//账号注册 可用url http://xxx:xx/login/reg?act=?&pwd=?
 message RegReq {
   string Account 	= 1;  	//账号
   string Passwd 	= 2;    //密码
@@ -63,9 +63,8 @@ message RegReq {
 //返回
 //message LoginResp
 
-//http://xxx:xx/login/bindcode
-//绑定邀请码
-//参数
+//http://xxx:xx/user/bindcode
+//绑定邀请码 可用url http://xxx:xx/user/bindcode?tk=?&cd=?
 message BindCodeReq {
     string Token = 1;
     string Code = 2;
@@ -76,7 +75,7 @@ message BindCodeResp {
 }
 
 //http://xxx:xx/user/modifynick
-//修改昵称
+//修改昵称 可用url http://xxx:xx/user/modifynick?tk=?&nk=?
 message ModifyNickReq {
     string Token = 1;
     string NewNick = 2;
@@ -87,7 +86,7 @@ message ModifyNickResp {
 }
 
 //http://xxx:xx/user/modifyface
-//修改头像
+//修改头像 可用url http://xxx:xx/user/modifyface?tk=?&fc=?
 message ModifyFaceReq {
     string Token = 1;
     string NewFace = 2;
@@ -98,7 +97,7 @@ message ModifyFaceResp {
 }
 
 //http://xxx:xx/user/modifyframe
-//修改头像框
+//修改头像框 可用url http://xxx:xx/user/modifyframe?tk=?&fr=?
 message ModifyFrameReq {
     string Token = 1;
     int32 NewFrame = 2;
@@ -109,7 +108,7 @@ message ModifyFrameResp {
 }
 
 //http://xxx:xx/user/modifysex
-//修改性别
+//修改性别 可用url http://xxx:xx/user/modifysex?tk=?&sx=?
 message ModifySexReq {
     string Token = 1;
     int32 NewSex = 2;
@@ -120,7 +119,7 @@ message ModifySexResp {
 }
 
 //http://xxx:xx/user/modifysignname
-//修改个性签名
+//修改个性签名 可用url http://xxx:xx/user/modifysignname?tk=?&sn=?
 message ModifySignNameReq {
     string Token = 1;
     string NewSignName = 2;
