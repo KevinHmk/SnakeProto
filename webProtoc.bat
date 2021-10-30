@@ -1,0 +1,1 @@
+protoc.exe --js_out=library=build/web_define_msg,binary:. ./proto/web_define_msg.proto

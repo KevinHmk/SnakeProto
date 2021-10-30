@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package msg;
+
+//import "error_code_msg.proto";
+
+enum SnakeMode {
+    ModeGold       = 0; //赏金模式
+    ModeTeam       = 1; //团队模式
+}

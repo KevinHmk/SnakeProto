@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "error_code_msg.proto";
+
+package msg;
+
+enum SubLobbyMsgID {
+    SubLobbyNone        = 0;
+    VerifyLogin         = 1;
+    VerifyLoginRet      = 2;
+    NotifyPlayGameRet   = 3;        //通知正在进行中的游戏
+
+    JoinRoom            = 4;
+    JoinRoomRet         = 5;
+    QuitRoomRet         = 6;
+}
+
+//用户登陆认证
+//MainLobby VerifyLogin
+//返回 VerifyLoginRet,RoomListRet,
+message MsgVerifyLogin
+{
+      string  token  = 1;
+}
+
+//用户登陆认证返回
+//MainLobby VerifyLoginRet
+message MsgVerifyLoginRet
+{
+    int64 UID       = 1;
+    ErrorCode EC    = 2;
+ }
+
+ //通知正在进行中的游戏
+ //MainLobby NotifyPlayGameRet
+ message MsgNotifyPlayGameRet
+ {
+    int64 UID       = 1;
+    int32 ConfID    = 2;
+ }
+
+ //进入房间
+ message MsgJoinRoom
+ {
+    int64 UID       = 1;
+    int32 ConfID    = 2;
+ }
+
+ //进入房间返回
+  message MsgJoinRoomRet
+  {
+    ErrorCode  EC  = 1;
+  }
+
+  //离开房间
+  message MsgQuitRoomRet
+  {
+    ErrorCode  EC  = 1;
+  }

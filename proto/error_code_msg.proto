@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package msg;
+
+//MainError 子消息定义
+enum SubErrorMsgID {
+    CommonError       = 0; //常规错误
+}
+
+//错误码定义
+enum ErrorCode {
+	Success 			= 0;		//成功
+    Retry               = 1;        //重试
+	ParamError			= 2;		//参数错误
+	DataFormatErr       = 3;        //数据格式错误
+
+    TokenInvalid        = 100;      //无效的Token
+
+    RoomNotExist        = 200;      //房间不存在
+    RoomCloseError      = 201;      //房间异常关闭
+}
+
+//操作错误-返回所有操作的错误信息
+message OperateError {
+	ErrorCode ECode = 1;
+}

@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package msg;
+
+//通用返回格式
+//json{
+// code = ErrorCode
+// data = 返回结果 (code>0时，data=nil)
+//}
+
+
+//http://xxx:xx/game/update
+//更新请求
+//参数无
+//返回
+message UpdateResp {
+    string Regversion       = 1;
+    string Apkurl           = 2;
+    string Hoturl           = 3;
+    string Pageurl          = 4;
+    string Notice           = 5;
+    string Curversion       = 6;
+    int32 Updatemode        = 7;
+    string Apkversion       = 8;
+    string Packeturl        = 9;
+    string Conf             = 10;
+}
+
+//http://xxx:xx/login/login/
+//账号登录
+message LoginReq {
+  string Account 	= 1;  	//账号
+  string Passwd 	= 2;    //密码
+ }
+//返回
+message LoginResp {
+  int64  	UID 			= 1;	//用户id
+  string  	NickName 		= 2;	//昵称
+  string  	FaceUrl 		= 3;	//头像
+  string    FrameID         = 4;    //头像框
+  string    SignName        = 5;    //个性签名
+  int32     Sex             = 6;    //姓名 0女 1男
+  int64     InviteID        = 7;    //邀请人ID
+
+  int64  	Gold 			= 10;	//小币
+  int64     GoldBig         = 11;   //大币
+  int64     TeamScore       = 12;   //段位分
+
+  string  	Token 			= 15;	//token
+  string 	GateInfo 		= 16;	//网关
+  int32     FirstLogin      = 17;   //是否首次登陆 1为首次登陆
+  string    SrvTime         = 18;   //服务器时间 2020-12-10 00:00:00
+}
+
+//http://xxx:xx/login/bindcode
+//绑定邀请码
+//参数
+message BindCodeReq {
+    string Token = 1;
+    string Code = 2;
+}
+//返回
+message BindCodeResp {
+    int64 Invited = 1;
+}
+
+//http://xxx:xx/user/modifynick
+//修改昵称
+message ModifyNickReq {
+    string Token = 1;
+    string NewNick = 2;
+}
+//返回
+message ModifyNickResp {
+     string NewNick = 1;
+}
+
+//http://xxx:xx/user/modifyface
+//修改头像
+message ModifyFaceReq {
+    string Token = 1;
+    string NewFace = 2;
+}
+//返回
+message ModifyFaceResp {
+     string NewFace = 1;
+}
+
+//http://xxx:xx/user/modifyframe
+//修改头像框
+message ModifyFrameReq {
+    string Token = 1;
+    string NewFrame = 2;
+}
+//返回
+message ModifyFrameResp {
+     string NewFrame = 1;
+}
+
+//http://xxx:xx/user/modifysex
+//修改性别
+message ModifySexReq {
+    string Token = 1;
+    string NewSex = 2;
+}
+//返回
+message ModifySexResp {
+     string NewSex = 1;
+}
+
+//http://xxx:xx/user/modifysignname
+//修改个性签名
+message ModifySignNameReq {
+    string Token = 1;
+    string NewSignName = 2;
+}
+//返回
+message ModifySignNameResp {
+     string NewSignName = 1;
+}
