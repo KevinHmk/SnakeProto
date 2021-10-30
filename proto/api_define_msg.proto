@@ -28,8 +28,8 @@ message UpdateResp {
     string Conf             = 10;
 }
 
-//http://xxx:xx/login/login/
-//账号登录
+//http://xxx:xx/login/login
+//账号登录/123
 message LoginReq {
   string Account 	= 1;  	//账号
   string Passwd 	= 2;    //密码
