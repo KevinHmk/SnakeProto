@@ -61,7 +61,7 @@ proto.msg.ModifyFrameReq.prototype.toObject = function(opt_includeInstance) {
 proto.msg.ModifyFrameReq.toObject = function(includeInstance, msg) {
   var f, obj = {
     token: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    newframe: jspb.Message.getFieldWithDefault(msg, 2, "")
+    newframe: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -103,7 +103,7 @@ proto.msg.ModifyFrameReq.deserializeBinaryFromReader = function(msg, reader) {
       msg.setToken(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setNewframe(value);
       break;
     default:
@@ -143,8 +143,8 @@ proto.msg.ModifyFrameReq.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getNewframe();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       2,
       f
     );
@@ -168,17 +168,17 @@ proto.msg.ModifyFrameReq.prototype.setToken = function(value) {
 
 
 /**
- * optional string NewFrame = 2;
- * @return {string}
+ * optional int32 NewFrame = 2;
+ * @return {number}
  */
 proto.msg.ModifyFrameReq.prototype.getNewframe = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.msg.ModifyFrameReq.prototype.setNewframe = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

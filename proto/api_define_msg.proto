@@ -10,8 +10,10 @@ package msg;
 
 
 //http://xxx:xx/game/update
-//更新请求
-//参数无
+//更新请求 参数proto或者url http://xxx:xx/game/update?spid=?
+message UpdateReq {
+    int32 SpreadID = 1;
+}
 //返回
 message UpdateResp {
     string Regversion       = 1;
@@ -37,10 +39,10 @@ message LoginResp {
   int64  	UID 			= 1;	//用户id
   string  	NickName 		= 2;	//昵称
   string  	FaceUrl 		= 3;	//头像
-  string    FrameID         = 4;    //头像框
+  int32     FrameID         = 4;    //头像框
   string    SignName        = 5;    //个性签名
   int32     Sex             = 6;    //姓名 0女 1男
-  int64     InviteID        = 7;    //邀请人ID
+  int32     InviteID        = 7;    //邀请人ID
 
   int64  	Gold 			= 10;	//小币
   int64     GoldBig         = 11;   //大币
@@ -51,6 +53,15 @@ message LoginResp {
   int32     FirstLogin      = 17;   //是否首次登陆 1为首次登陆
   string    SrvTime         = 18;   //服务器时间 2020-12-10 00:00:00
 }
+
+//http://xxx:xx/login/reg/
+//账号注册
+message RegReq {
+  string Account 	= 1;  	//账号
+  string Passwd 	= 2;    //密码
+ }
+//返回
+//message LoginResp
 
 //http://xxx:xx/login/bindcode
 //绑定邀请码
@@ -90,22 +101,22 @@ message ModifyFaceResp {
 //修改头像框
 message ModifyFrameReq {
     string Token = 1;
-    string NewFrame = 2;
+    int32 NewFrame = 2;
 }
 //返回
 message ModifyFrameResp {
-     string NewFrame = 1;
+     int32 NewFrame = 1;
 }
 
 //http://xxx:xx/user/modifysex
 //修改性别
 message ModifySexReq {
     string Token = 1;
-    string NewSex = 2;
+    int32 NewSex = 2;
 }
 //返回
 message ModifySexResp {
-     string NewSex = 1;
+     int32 NewSex = 1;
 }
 
 //http://xxx:xx/user/modifysignname

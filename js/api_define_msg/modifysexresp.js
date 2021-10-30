@@ -60,7 +60,7 @@ proto.msg.ModifySexResp.prototype.toObject = function(opt_includeInstance) {
  */
 proto.msg.ModifySexResp.toObject = function(includeInstance, msg) {
   var f, obj = {
-    newsex: jspb.Message.getFieldWithDefault(msg, 1, "")
+    newsex: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -98,7 +98,7 @@ proto.msg.ModifySexResp.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setNewsex(value);
       break;
     default:
@@ -131,8 +131,8 @@ proto.msg.ModifySexResp.prototype.serializeBinary = function() {
 proto.msg.ModifySexResp.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getNewsex();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       1,
       f
     );
@@ -141,17 +141,17 @@ proto.msg.ModifySexResp.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string NewSex = 1;
- * @return {string}
+ * optional int32 NewSex = 1;
+ * @return {number}
  */
 proto.msg.ModifySexResp.prototype.getNewsex = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.msg.ModifySexResp.prototype.setNewsex = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 

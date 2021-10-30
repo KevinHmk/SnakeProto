@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.msg.ModifyFrameResp');
+goog.provide('proto.msg.UpdateReq');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -23,12 +23,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.msg.ModifyFrameResp = function(opt_data) {
+proto.msg.UpdateReq = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.msg.ModifyFrameResp, jspb.Message);
+goog.inherits(proto.msg.UpdateReq, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.msg.ModifyFrameResp.displayName = 'proto.msg.ModifyFrameResp';
+  proto.msg.UpdateReq.displayName = 'proto.msg.UpdateReq';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.msg.ModifyFrameResp.prototype.toObject = function(opt_includeInstance) {
-  return proto.msg.ModifyFrameResp.toObject(opt_includeInstance, this);
+proto.msg.UpdateReq.prototype.toObject = function(opt_includeInstance) {
+  return proto.msg.UpdateReq.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,13 +54,13 @@ proto.msg.ModifyFrameResp.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.msg.ModifyFrameResp} msg The msg instance to transform.
+ * @param {!proto.msg.UpdateReq} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.msg.ModifyFrameResp.toObject = function(includeInstance, msg) {
+proto.msg.UpdateReq.toObject = function(includeInstance, msg) {
   var f, obj = {
-    newframe: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    spreadid: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -74,23 +74,23 @@ proto.msg.ModifyFrameResp.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.msg.ModifyFrameResp}
+ * @return {!proto.msg.UpdateReq}
  */
-proto.msg.ModifyFrameResp.deserializeBinary = function(bytes) {
+proto.msg.UpdateReq.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.msg.ModifyFrameResp;
-  return proto.msg.ModifyFrameResp.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.msg.UpdateReq;
+  return proto.msg.UpdateReq.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.msg.ModifyFrameResp} msg The message object to deserialize into.
+ * @param {!proto.msg.UpdateReq} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.msg.ModifyFrameResp}
+ * @return {!proto.msg.UpdateReq}
  */
-proto.msg.ModifyFrameResp.deserializeBinaryFromReader = function(msg, reader) {
+proto.msg.UpdateReq.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -99,7 +99,7 @@ proto.msg.ModifyFrameResp.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setNewframe(value);
+      msg.setSpreadid(value);
       break;
     default:
       reader.skipField();
@@ -114,9 +114,9 @@ proto.msg.ModifyFrameResp.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.msg.ModifyFrameResp.prototype.serializeBinary = function() {
+proto.msg.UpdateReq.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.msg.ModifyFrameResp.serializeBinaryToWriter(this, writer);
+  proto.msg.UpdateReq.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,13 +124,13 @@ proto.msg.ModifyFrameResp.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.msg.ModifyFrameResp} message
+ * @param {!proto.msg.UpdateReq} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.msg.ModifyFrameResp.serializeBinaryToWriter = function(message, writer) {
+proto.msg.UpdateReq.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getNewframe();
+  f = message.getSpreadid();
   if (f !== 0) {
     writer.writeInt32(
       1,
@@ -141,16 +141,16 @@ proto.msg.ModifyFrameResp.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int32 NewFrame = 1;
+ * optional int32 SpreadID = 1;
  * @return {number}
  */
-proto.msg.ModifyFrameResp.prototype.getNewframe = function() {
+proto.msg.UpdateReq.prototype.getSpreadid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.ModifyFrameResp.prototype.setNewframe = function(value) {
+proto.msg.UpdateReq.prototype.setSpreadid = function(value) {
   jspb.Message.setProto3IntField(this, 1, value);
 };
 

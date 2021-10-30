@@ -13,8 +13,12 @@ enum ErrorCode {
     Retry               = 1;        //重试
 	ParamError			= 2;		//参数错误
 	DataFormatErr       = 3;        //数据格式错误
+	DBError             = 4;        //数据库错误
 
     TokenInvalid        = 100;      //无效的Token
+    AcctNotExist        = 101;      //账号不存在
+    AcctIsExist         = 102;      //账号已存在
+    AcctOrPassBad       = 103;      //账号或者密码不争取
 
     RoomNotExist        = 200;      //房间不存在
     RoomCloseError      = 201;      //房间异常关闭
