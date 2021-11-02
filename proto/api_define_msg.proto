@@ -141,3 +141,16 @@ message ModifySignNameReq {
 message ModifySignNameResp {
      string NewSignName = 1;
 }
+
+//http://xxx:xx/user/freshscore
+message FreshScoreReq {
+    string Token = 1;
+    string NewSignName = 2;
+}
+//返回
+message FreshScoreResp {
+    int64   UID             = 1;
+    int64  	Gold 			= 2;    //小币
+    int64   GoldBig         = 3;    //大币
+    int64   TeamScore       = 4;    //段位分
+}

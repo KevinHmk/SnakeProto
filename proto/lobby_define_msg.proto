@@ -13,7 +13,10 @@ enum SubLobbyMsgID {
 
     JoinRoom            = 8;
     JoinRoomRet         = 9;
-    QuitRoomRet         = 10;
+    QuitRoom            = 10;
+    QuitRoomRet         = 11;
+
+    NotifyGoldChgRet    = 16;
 }
 
 //用户登陆认证
@@ -49,6 +52,7 @@ message MsgVerifyLoginRet
  }
 
  //进入房间
+ //MainLobby JoinRoom
  message MsgJoinRoom
  {
     int64 UID       = 1;
@@ -56,13 +60,32 @@ message MsgVerifyLoginRet
  }
 
  //进入房间返回
-  message MsgJoinRoomRet
-  {
-    ErrorCode  EC  = 1;
-  }
+ //MainLobby JoinRoomRet
+ message MsgJoinRoomRet
+ {
+   ErrorCode  EC  = 1;
+ }
 
-  //离开房间
-  message MsgQuitRoomRet
+ //离开房间
+ //MainLobby QuitRoom
+ message MsgQuitRoom
+ {
+    int32 ConfID    = 1;
+ }
+
+ //离开房间返回
+ //MainLobby QuitRoomRet
+ message MsgQuitRoomRet
+ {
+   ErrorCode  EC  = 1;
+ }
+
+  //通知分数变化
+  //MainLobby NotifyGoldChgRet
+  message MsgNotifyGoldChgRet
   {
-    ErrorCode  EC  = 1;
+    int64   UID             = 1;
+    int64  	Gold 			= 2;    //小币
+    int64   GoldBig         = 3;    //大币
+    int64   TeamScore       = 4;    //段位分
   }
