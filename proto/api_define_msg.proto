@@ -54,7 +54,20 @@ message LoginResp {
   string    SrvTime         = 18;   //服务器时间 2020-12-10 00:00:00
 }
 
-//http://xxx:xx/login/reg/
+//http://xxx:xx/login/fresh
+//刷新Token 可用url http://xxx:xx/login/fresh?act=?&pwd=?
+message FreshReq {
+  string Account 	= 1;  	//账号
+  string Passwd 	= 2;    //密码
+ }
+//返回
+message FreshResp {
+    string      Token           = 1;
+    string      SrvTime         = 2;   //服务器时间 2020-12-10 00:00:00
+    int64       ValidTime       = 3;   //有效时间，单位s
+}
+
+//http://xxx:xx/login/reg
 //账号注册 可用url http://xxx:xx/login/reg?act=?&pwd=?
 message RegReq {
   string Account 	= 1;  	//账号

@@ -19,6 +19,7 @@ enum ErrorCode {
     AcctNotExist        = 101;      //账号不存在
     AcctIsExist         = 102;      //账号已存在
     AcctOrPassBad       = 103;      //账号或者密码不争取
+    AcctOtherLogin      = 104;      //账号在别处登录
 
     RoomNotExist        = 200;      //房间不存在
     RoomCloseError      = 201;      //房间异常关闭

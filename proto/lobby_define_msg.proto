@@ -9,10 +9,11 @@ enum SubLobbyMsgID {
     VerifyLogin         = 1;
     VerifyLoginRet      = 2;
     NotifyPlayGameRet   = 3;        //通知正在进行中的游戏
+    NotifyLoginSwitchRet = 4;       //通知登录切换
 
-    JoinRoom            = 4;
-    JoinRoomRet         = 5;
-    QuitRoomRet         = 6;
+    JoinRoom            = 8;
+    JoinRoomRet         = 9;
+    QuitRoomRet         = 10;
 }
 
 //用户登陆认证
@@ -37,6 +38,14 @@ message MsgVerifyLoginRet
  {
     int64 UID       = 1;
     int32 ConfID    = 2;
+ }
+
+ //通知登录顶替
+ //MainLobby NotifyLoginSwitchRet
+ message MsgNotifyLoginSwitchRet
+ {
+    int64 UID       = 1;
+    ErrorCode EC    = 2;
  }
 
  //进入房间
