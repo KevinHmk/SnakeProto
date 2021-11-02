@@ -145,7 +145,6 @@ message ModifySignNameResp {
 //http://xxx:xx/user/freshscore
 message FreshScoreReq {
     string Token = 1;
-    string NewSignName = 2;
 }
 //返回
 message FreshScoreResp {
