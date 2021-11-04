@@ -13,6 +13,7 @@ goog.provide('proto.msg.SubNetMsgID');
  * @enum {number}
  */
 proto.msg.SubNetMsgID = {
-  KEEPALIVE: 0
+  KEEPALIVE: 0,
+  CONNED: 1
 };
 

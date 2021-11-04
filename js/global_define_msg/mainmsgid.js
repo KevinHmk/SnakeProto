@@ -13,10 +13,9 @@ goog.provide('proto.msg.MainMsgID');
  * @enum {number}
  */
 proto.msg.MainMsgID = {
-  MAINNONE: 0,
-  MAINNET: 1,
-  MAINLOBBY: 2,
-  MAINGAME: 3,
-  MAINERROR: 4
+  MAINNET: 0,
+  MAINLOBBY: 1,
+  MAINGAME: 2,
+  MAINERROR: 3
 };
 
