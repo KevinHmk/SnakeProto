@@ -10,22 +10,17 @@ enum NetTag {
 }
 
 enum MainMsgID {
-    MainNone               = 0;
-    MainNet                 = 1;    //网络事件
-    MainLobby               = 2;    //大厅消息，包括登陆验证
-    MainGame                = 3;    //游戏内部消息
-    MainError               = 4;    //通用错误消息
+    MainNet                 = 0;    //网络事件
+    MainLobby               = 1;    //大厅消息，包括登陆验证
+    MainGame                = 2;    //游戏内部消息
+    MainError               = 3;    //通用错误消息
 
-}
-
-//MainGate 子消息定义
-enum SubGateMsgID {
-    Conned               = 0;
 }
 
 //MainNet 子消息定义
 enum SubNetMsgID {
     KeepAlive            = 0;
+    Conned               = 1;
 }
 
 //通知客户端连接成功
