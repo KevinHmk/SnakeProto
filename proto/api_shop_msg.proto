@@ -17,7 +17,7 @@ enum EnShopType {
 }
 
 //http://xxx:xx/shop/shoplist
-//获取商品列表 可用url http://xxx:xx/shop/shoplist?st=?
+//获取商品列表
 //参数
 message ShopListReq {
     EnShopType ShopType = 1;
@@ -50,4 +50,35 @@ message ShopMyResp {
     string Frames = 2;      //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
     string Prop = 3;        //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
     string PropFrag = 4;    //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
+}
+
+//http://xxx:xx/shop/buygood
+//获取商品列表 可用url http://xxx:xx/shop/buygood?tk=?&gid=?
+//参数
+message BuyGoodReq {
+   string Token = 1;
+   int32 ShopId = 2;
+}
+//返回
+message BuyGoodResp {
+    int32 ShopId = 1;       //商品ID
+    int64 EndDate = 2;      //结束日期
+    int64 GoldEnd = 3;      //
+    int64 GoldBigEnd = 4;
+    ShopMyResp ShopMy = 5;  //我的商品
+}
+
+
+//http://xxx:xx/shop/makegood
+//获取商品列表 可用url http://xxx:xx/shop/makegood?tk=?&gid=?
+//参数
+message MakeGoodReq {
+   string Token = 1;
+   int32 ShopId = 2;
+}
+//返回
+message MakeGoodResp {
+    int32 ShopId = 1;       //商品ID
+    int64 EndDate = 2;      //结束日期
+    ShopMyResp ShopMy = 3;  //我的商品
 }
