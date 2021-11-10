@@ -32,7 +32,7 @@ message ShopItem {
 }
 //皮肤定义
 message SkinItem {
-    int32 SkinID = 1;       //皮肤ID 或者皮肤碎片
+    int32 SkinID = 1;       //皮肤ID 或者皮肤碎片，或者任意碎片
     EnShopType Stype = 2;   //商品类型
     string Sname = 3;       //皮肤名称
     string Sicon = 4;       //皮肤Icon
@@ -40,7 +40,7 @@ message SkinItem {
     int32 Fragid = 6;       //合成碎片ID
     int32 Fragnum = 7;      //合成碎片需要碎片
     int32 CombID = 8;       //合成ID，仅限皮肤碎片
-    string SgenAim = 9;     //任意碎片合成目标
+    string SgenAim = 9;     //任意碎片[SKillID1,SkillID2,]，仅限任意碎片
     int32 SMaxPower = 10;    //最大体力
     int32 STurnPower = 11;  //每局消耗体力
     string Ssource = 12;    //来源
@@ -57,11 +57,12 @@ enum EnSkillID {
 }
 //技能定义
 message SkillItem {
-    EnSkillID SkillID = 1;
-    string Sname = 2;
-    string SIcon = 3;
-    int32 CDTime = 4;
-    int32 DurationTime = 5;
+    int32 SID = 1;          //技能ID
+    EnSkillID SType = 2;    //技能类型
+    string Sname = 3;       //技能名称
+    string SIcon = 4;       //技能图标
+    int32 CDTime = 5;       //冷却时间
+    int32 DurationTime = 6; //持续时间
 }
 //玩家皮肤
 message SkinUser {
