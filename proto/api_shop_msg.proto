@@ -11,33 +11,35 @@ package msg;
 //商品类别
 enum EnShopType {
     EnShopAll = 0;
-    EnShopCard = 1;      //游戏卡
-    EnShopFrame = 2;     //头像框
-    EnShopProp = 3;      //NTF卡
-    EnShopPropFrag = 4;  //碎片
-    EnShopPropGen = 5;   //任意碎片
+    EnShopSkill = 1;        //技能卡
+    EnShopFrame = 2;        //头像框
+    EnShopProp = 3;         //NTF卡
+    EnShopPropFrag = 4;     //碎片
+    EnShopPropGen = 5;      //任意碎片
+    EnShopKillEffect = 6;    //击杀效果
 }
 //商品定义
 message ShopItem {
     int32 ShopId = 1;           //商品ID
-    EnShopType shopType = 2;    //商品类型
-    string ShopName = 3;        //商品名称
-    string ShopIcon = 4;        //商品图标
-    double Gold = 5;            //小币
-    double GoldBig = 6;         //大币
-    string Source = 7;          //来源
-    int32 Skillid = 8;          //技能id
+    int32 SkinID = 2;           //皮肤ID shopType=皮肤时,有值
+    EnShopType shopType = 3;    //商品类型
+    string ShopName = 4;        //商品名称
+    string ShopIcon = 5;        //商品图标
+    double Gold = 6;            //小币
+    double GoldBig = 7;         //大币
+    string Source = 8;          //来源
+    int32 Skillid = 9;          //技能id
 }
 //皮肤定义
 message SkinItem {
-    int32 SkinID = 1;       //皮肤ID
-    int32 Stype = 2;        //皮肤类型
+    int32 SkinID = 1;       //皮肤ID 或者皮肤碎片
+    EnShopType Stype = 2;   //商品类型
     string Sname = 3;       //皮肤名称
     string Sicon = 4;       //皮肤Icon
     int32 Skillid = 5;      //技能ID
     int32 Fragid = 6;       //合成碎片ID
     int32 Fragnum = 7;      //合成碎片需要碎片
-    int32 CombID = 8;       //合成ID
+    int32 CombID = 8;       //合成ID，仅限皮肤碎片
     string SgenAim = 9;     //任意碎片合成目标
     int32 SMaxPower = 10;    //最大体力
     int32 STurnPower = 11;  //每局消耗体力
@@ -116,10 +118,10 @@ message ShopUserReq {
 }
 //返回
 message ShopUserResp {
-    string Cards = 1;       //格式 [[商品id,数量int],[商品id,数量int],]
+    string Skills = 1;      //格式 [[商品id,数量int],[商品id,数量int],]
     string Frames = 2;      //格式 [[商品id,数量int],[商品id,数量int],]
     string Prop = 3;        //格式 [{SkinUser Json},{SkinUser Json},]
-    string PropFrag = 4;    //格式 [[皮肤类型,数量int],[商品id,数量int],]
+    string PropFrag = 4;    //格式 [[碎片类型,数量int],[碎片类型,数量int],]
 }
 
 //http://xxx:xx/shop/makeskin
