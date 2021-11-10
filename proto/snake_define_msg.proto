@@ -4,7 +4,47 @@ package msg;
 
 //import "error_code_msg.proto";
 
+
+enum SubSnakeGame
+{
+    SubSnakeGameNone = 0;
+    JoinGameRet = 1;        //进入游戏
+    GameResult = 2;         //请求计算
+    GameResultRet = 3;      //游戏结算
+    SnakeCrash = 4;         //请求碰撞
+    SnakeCrashRet = 5;      //碰撞返回
+    SnakeRevive = 6;        //请求复活
+    SnakeReviveRet = 7;     //复活返回
+    SyncData = 8;           //同步进度
+    SyncDataRet =9;         //同步返回
+
+
+    NotifyGenRet = 10;      //生成新蛇
+    NotifyDeadRet = 11;     //蛇死亡
+    NotifyRankRet = 12;     //通知新的排名
+}
+
+
+//
 enum SnakeMode {
-    ModeGold       = 0; //赏金模式
-    ModeTeam       = 1; //团队模式
+    ModeEnd        = 0; //无尽模式
+    ModeGold       = 1; //赏金模式
+    ModeTeam       = 2; //团队模式
+}
+
+//无尽模式奖励配置
+message ModeEndAwardConf {
+    int32 BoxGap = 1;           //分发宝箱间隔
+    double BoxAward = 2;         //可拿宝箱金额
+    int32 BoxNum = 3;           //宝箱数量
+
+    int32 BaseLen = 4;          //基础长度
+    double BaseAward = 5;       //基础奖励
+    int32 StepLen = 6;          //递增长度
+    double StepAward = 7;       //每递增长度奖励
+    double MaxAward = 8;        //每天奖励上限
+
+    int32 DayStepLen = 9;       //累计奖励间隔
+    double DayStepAward = 10;   //累计奖励
+    double DayMaxAward = 11;    //累计最大奖励
 }

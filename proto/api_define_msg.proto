@@ -44,8 +44,8 @@ message LoginResp {
   int32     Sex             = 6;    //姓名 0女 1男
   int32     InviteID        = 7;    //邀请人ID
 
-  int64  	Gold 			= 10;	//小币
-  int64     GoldBig         = 11;   //大币
+  double  	Gold 			= 10;	//小币
+  double     GoldBig         = 11;   //大币
   int64     TeamScore       = 12;   //段位分
 
   string  	Token 			= 15;	//token
@@ -149,7 +149,7 @@ message FreshScoreReq {
 //返回
 message FreshScoreResp {
     int64   UID             = 1;
-    int64  	Gold 			= 2;    //小币
-    int64   GoldBig         = 3;    //大币
+    double  	Gold 			= 2;    //小币
+    double   GoldBig         = 3;    //大币
     int64   TeamScore       = 4;    //段位分
 }

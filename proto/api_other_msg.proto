@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package msg;
+
+//通用返回格式
+//json{
+// code = ErrorCode
+// data = 返回结果 (code>0时，data=nil)
+//}
+
+enum EnGoldChgType {
+    EnGCNone = 0;
+    EnGCGame = 1;    //游戏
+    EnGCBuy = 2;     //买商品
+}

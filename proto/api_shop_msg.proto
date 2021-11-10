@@ -8,52 +8,135 @@ package msg;
 // data = 返回结果 (code>0时，data=nil)
 //}
 
+//商品类别
 enum EnShopType {
     EnShopAll = 0;
-    EnShopCard = 1;
-    EnShopFrame = 2;
-    EnShopProp = 3;
-    EnShopPropFrag = 4;
+    EnShopCard = 1;      //游戏卡
+    EnShopFrame = 2;     //头像框
+    EnShopProp = 3;      //NTF卡
+    EnShopPropFrag = 4;  //碎片
+    EnShopPropGen = 5;   //任意碎片
+}
+//商品定义
+message ShopItem {
+    int32 ShopId = 1;           //商品ID
+    EnShopType shopType = 2;    //商品类型
+    string ShopName = 3;        //商品名称
+    string ShopIcon = 4;        //商品图标
+    double Gold = 5;            //小币
+    double GoldBig = 6;         //大币
+    string Source = 7;          //来源
+    int32 Skillid = 8;          //技能id
+}
+//皮肤定义
+message SkinItem {
+    int32 SkinID = 1;       //皮肤ID
+    int32 Stype = 2;        //皮肤类型
+    string Sname = 3;       //皮肤名称
+    string Sicon = 4;       //皮肤Icon
+    int32 Skillid = 5;      //技能ID
+    int32 Fragid = 6;       //合成碎片ID
+    int32 Fragnum = 7;      //合成碎片需要碎片
+    int32 CombID = 8;       //合成ID
+    string SgenAim = 9;     //任意碎片合成目标
+    int32 SMaxPower = 10;    //最大体力
+    int32 STurnPower = 11;  //每局消耗体力
+    string Ssource = 12;    //来源
+}
+//技能枚举
+enum EnSkillID {
+    EnSkillNone = 0;
+    EnSkillProtect = 1;     //保护罩
+    EnSkillMagnet = 2;      //磁铁
+    EnSkillDouble = 3;      //双倍积分
+    EnSkillSpeed = 4;       //极速鞋
+    EnSkillMushroom = 5;    //蘑菇
+    EnSkillHelmet = 6;      //头盔
+}
+//技能定义
+message SkillItem {
+    EnSkillID SkillID = 1;
+    string Sname = 2;
+    string SIcon = 3;
+    int32 CDTime = 4;
+    int32 DurationTime = 5;
+}
+//玩家皮肤
+message SkinUser {
+    int64 NFT = 1;      //NFTID
+    int32 SID = 2;      //皮肤ID
+    string SName = 3;   //皮肤名称
+    int32 Max = 4;      //最大体力
+    int32 Turn = 5;     //每局体力
+    int32 Cur = 6;      //档期体力
+    int64 Mker = 7;     //铸造者
+    int64 UTime = 8;    //上次恢复体力时间
+    int64 Skillid =9;   //技能ID
 }
 
 //http://xxx:xx/shop/shoplist
 //获取商品列表
-//参数
-message ShopListReq {
-    EnShopType ShopType = 1;
-}
+//参数无
 //返回
 message ShopListResp {
-    message ShopItem {
-        int32 ShopId = 1;
-        EnShopType shopType = 2;
-        string ShopName = 3;
-        int64 Gold = 4;
-        int64 GoldBig = 5;
-        int32 CompId = 6;
-        int32 CompNum = 7;
-        int32 ValidDays = 8;
-        string Source = 9;
-    }
     repeated ShopItem Items = 1;
 }
 
-//http://xxx:xx/shop/shopmy
-//获取商品列表 可用url http://xxx:xx/shop/shopmy?tk=?
+//http://xxx:xx/shop/skinlist
+//获取皮肤列表 可用url http://xxx:xx/shop/skinlist
+//参数无
+//返回
+message SkinListResp {
+    repeated SkinItem items = 1;
+}
+
+//http://xxx:xx/shop/skilllist
+//获取技能列表
+//参数无
+//返回
+message SkillListResp {
+    repeated SkillItem items = 1;
+}
+
+//http://xxx:xx/shop/alllist
+//获取三个列表 获取商品列表 获取皮肤列表 获取技能列表
+//参数无
+//返回
+message ShopAllListResp {
+    repeated ShopItem ShopItems = 1;
+    repeated SkinItem Skinitems = 2;
+    repeated SkillItem Skillitems = 3;
+}
+
+//http://xxx:xx/shop/shopuser
+//获取用户商品 可用url http://xxx:xx/shop/shopuser?tk=?
 //参数
-message ShopMyReq {
+message ShopUserReq {
    string Token = 1;
 }
 //返回
-message ShopMyResp {
-    string Cards = 1;       //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
-    string Frames = 2;      //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
-    string Prop = 3;        //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
-    string PropFrag = 4;    //格式 [[商品id,数量int,截止日期int64],[商品id,数量int,截止日期int64],]
+message ShopUserResp {
+    string Cards = 1;       //格式 [[商品id,数量int],[商品id,数量int],]
+    string Frames = 2;      //格式 [[商品id,数量int],[商品id,数量int],]
+    string Prop = 3;        //格式 [{SkinUser Json},{SkinUser Json},]
+    string PropFrag = 4;    //格式 [[皮肤类型,数量int],[商品id,数量int],]
+}
+
+//http://xxx:xx/shop/makeskin
+//合成皮肤 可用url http://xxx:xx/shop/makeskin?tk=?&gid=?
+//参数
+message MakeGoodReq {
+   string Token = 1;
+   int32 ShopId = 2;
+}
+//返回
+message MakeGoodResp {
+    SkinItem Skin = 1;       //皮肤
+    ShopUserResp ShopMy = 2;  //我的商品
 }
 
 //http://xxx:xx/shop/buygood
-//获取商品列表 可用url http://xxx:xx/shop/buygood?tk=?&gid=?
+//购买商品 可用url http://xxx:xx/shop/buygood?tk=?&gid=?
 //参数
 message BuyGoodReq {
    string Token = 1;
@@ -62,23 +145,7 @@ message BuyGoodReq {
 //返回
 message BuyGoodResp {
     int32 ShopId = 1;       //商品ID
-    int64 EndDate = 2;      //结束日期
-    int64 GoldEnd = 3;      //
-    int64 GoldBigEnd = 4;
-    ShopMyResp ShopMy = 5;  //我的商品
-}
-
-
-//http://xxx:xx/shop/makegood
-//获取商品列表 可用url http://xxx:xx/shop/makegood?tk=?&gid=?
-//参数
-message MakeGoodReq {
-   string Token = 1;
-   int32 ShopId = 2;
-}
-//返回
-message MakeGoodResp {
-    int32 ShopId = 1;       //商品ID
-    int64 EndDate = 2;      //结束日期
-    ShopMyResp ShopMy = 3;  //我的商品
+    double GoldEnd = 2;     //最终小币
+    double GoldBigEnd = 3;  //最终大币
+    ShopUserResp ShopMy = 4;  //我的商品
 }
