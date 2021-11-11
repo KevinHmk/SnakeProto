@@ -71,7 +71,7 @@ message MsgSnakePlayer
 message MsgSnakeDeskRet
 {
     MsgSnakePlayer Self = 1;
-    ModeEndAwardConf conf = 2;
+
     int64 SrvTime = 3;
     SkinUser SkinUse = 4;
     repeated MsgSnakePlayer Players = 5;
@@ -93,17 +93,22 @@ message MsgSnakeSyncDataRet {
 //请求游戏结算
 //MainGame GameResult
 message MsgSnakeGameResult {
-    int32 SnakeLen = 1;
+    int32 SnakeLen = 1; //最终蛇的长度
+    int32 KillNum = 2;  //杀蛇数量
 }
 
 //无尽模式游戏结算
 //MainGame GameResultRet
 message MsgSnakeEndGameResultRet {
-    int32 SnakeLen = 1;         //蛇长度
-    double SnakeLenGold = 2;     //奖励小币
+    ModeEndAwardConf conf = 1;  //奖励配置
 
-    int32 DaySnakeLen = 3;      //日累计蛇长度
-    int32 DayGetGoldLen = 4;    //领取奖励长度
-    double DaySnakeLenWin =  5; //未领取小币
+    int32 SnakeLen = 2;         //蛇长度
+    double SnakeLenGold = 3;     //奖励小币
+
+    int32 DaySnakeLen = 4;      //日累计蛇长度
+    int32 DayGetGoldLen = 5;    //领取奖励长度
+    double DaySnakeLenWin =  6; //未领取小币
+
+    int32 KillNum = 7;          //杀蛇数量
 
 }
