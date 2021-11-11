@@ -74,7 +74,7 @@ message SkinUser {
     int32 Cur = 6;      //档期体力
     int64 Mker = 7;     //铸造者
     int64 UTime = 8;    //上次恢复体力时间
-    int64 Skillid =9;   //技能ID
+    int32 Skillid =9;   //技能ID
 }
 
 //http://xxx:xx/shop/shoplist

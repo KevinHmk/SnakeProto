@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package msg;
 
-//import "error_code_msg.proto";
+import "api_shop_msg.proto";
 
 
 enum SubSnakeGame
@@ -17,11 +17,14 @@ enum SubSnakeGame
     SnakeReviveRet = 7;     //复活返回
     SyncData = 8;           //同步进度
     SyncDataRet =9;         //同步返回
+    UseSkill = 10;          //使用技能
+    UseSkillRet = 11;       //使用技能返回
 
 
-    NotifyGenRet = 10;      //生成新蛇
-    NotifyDeadRet = 11;     //蛇死亡
-    NotifyRankRet = 12;     //通知新的排名
+    NotifyGenRet = 15;      //生成新蛇
+    NotifyDeadRet = 16;     //蛇死亡
+    NotifyRankRet = 17;     //通知新的排名
+    NotifyStage = 18;       //通知场景变化
 }
 
 
@@ -47,4 +50,60 @@ message ModeEndAwardConf {
     int32 DayStepLen = 9;       //累计奖励间隔
     double DayStepAward = 10;   //累计奖励
     double DayMaxAward = 11;    //累计最大奖励
+}
+
+message MsgSnakePlayer
+{
+    int64 UID = 1;
+    string Nickname = 2;
+    string Faceurl = 3;
+    string FrameID = 4;
+    string Signname = 5;
+    int32 Sex = 6;
+    double Gold = 7;	//小币
+    double GoldBig = 8;   //大币
+    int64 TeamScore = 9;   //段位分
+
+}
+
+//进入房间消息
+//MainGame JoinGameRet
+message MsgSnakeDeskRet
+{
+    MsgSnakePlayer Self = 1;
+    ModeEndAwardConf conf = 2;
+    int64 SrvTime = 3;
+    SkinUser SkinUse = 4;
+    repeated MsgSnakePlayer Players = 5;
+}
+
+//请求同步数据
+//MainGame SyncData
+message MsgSnakeSyncData {
+    int32 SnakeLen = 1; //蛇长度
+}
+
+//请求同步数据
+//MainGame SyncDataRet
+message MsgSnakeSyncDataRet {
+    int32 SnakeLen = 1;
+
+}
+
+//请求游戏结算
+//MainGame GameResult
+message MsgSnakeGameResult {
+    int32 SnakeLen = 1;
+}
+
+//无尽模式游戏结算
+//MainGame GameResultRet
+message MsgSnakeEndGameResultRet {
+    int32 SnakeLen = 1;         //蛇长度
+    double SnakeLenGold = 2;     //奖励小币
+
+    int32 DaySnakeLen = 3;      //日累计蛇长度
+    int32 DayGetGoldLen = 4;    //领取奖励长度
+    double DaySnakeLenWin =  5; //未领取小币
+
 }
