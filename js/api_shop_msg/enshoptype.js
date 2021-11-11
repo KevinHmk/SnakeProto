@@ -7,14 +7,18 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.msg.SnakeMode');
+goog.provide('proto.msg.EnShopType');
 
 /**
  * @enum {number}
  */
-proto.msg.SnakeMode = {
-  MODEEND: 0,
-  MODEGOLD: 1,
-  MODETEAM: 2
+proto.msg.EnShopType = {
+  ENSHOPALL: 0,
+  ENSHOPSKILL: 1,
+  ENSHOPFRAME: 2,
+  ENSHOPPROP: 3,
+  ENSHOPPROPFRAG: 4,
+  ENSHOPPROPGEN: 5,
+  ENSHOPKILLEFFECT: 6
 };
 

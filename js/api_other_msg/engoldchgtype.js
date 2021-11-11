@@ -7,14 +7,14 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.msg.SnakeMode');
+goog.provide('proto.msg.EnGoldChgType');
 
 /**
  * @enum {number}
  */
-proto.msg.SnakeMode = {
-  MODEEND: 0,
-  MODEGOLD: 1,
-  MODETEAM: 2
+proto.msg.EnGoldChgType = {
+  ENGCNONE: 0,
+  ENGCGAME: 1,
+  ENGCBUY: 2
 };
 

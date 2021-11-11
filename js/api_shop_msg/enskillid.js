@@ -7,14 +7,18 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.msg.SnakeMode');
+goog.provide('proto.msg.EnSkillID');
 
 /**
  * @enum {number}
  */
-proto.msg.SnakeMode = {
-  MODEEND: 0,
-  MODEGOLD: 1,
-  MODETEAM: 2
+proto.msg.EnSkillID = {
+  ENSKILLNONE: 0,
+  ENSKILLPROTECT: 1,
+  ENSKILLMAGNET: 2,
+  ENSKILLDOUBLE: 3,
+  ENSKILLSPEED: 4,
+  ENSKILLMUSHROOM: 5,
+  ENSKILLHELMET: 6
 };
 
