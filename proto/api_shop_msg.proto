@@ -121,8 +121,10 @@ message ShopUserReq {
 message ShopUserResp {
     string Skills = 1;      //格式 [[商品id,数量int],[商品id,数量int],]
     string Frames = 2;      //格式 [[商品id,数量int],[商品id,数量int],]
-    string Prop = 3;        //格式 [{SkinUser Json},{SkinUser Json},]
-    string PropFrag = 4;    //格式 [[碎片类型,数量int],[碎片类型,数量int],]
+    string Prop = 3;        //商城皮肤，格式 [{SkinUser Json},{SkinUser Json},]
+    string Nftprop = 4;     //NFT皮肤，格式 [{SkinUser Json},{SkinUser Json},]
+    string PropFrag = 5;    //皮肤碎片，格式 [[碎片类型,数量int],[碎片类型,数量int],]
+    SkinUser Curprop = 6;   //当前皮肤
 }
 
 //http://xxx:xx/shop/makeskin
