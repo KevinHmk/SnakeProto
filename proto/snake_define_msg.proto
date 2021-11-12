@@ -71,9 +71,9 @@ message MsgSnakePlayer
 message MsgSnakeDeskRet
 {
     MsgSnakePlayer Self = 1;
-
-    int64 SrvTime = 3;
-    SkinUser SkinUse = 4;
+    int32 Skillid = 2;
+    SkinUser SkinUse = 3;
+    int64 SrvTime = 4;
     repeated MsgSnakePlayer Players = 5;
 }
 

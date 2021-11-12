@@ -57,6 +57,7 @@ message MsgVerifyLoginRet
  {
     int64 UID       = 1;
     int32 ConfID    = 2;
+    int32 Skillid   = 3; //技能ID
  }
 
  //进入房间返回

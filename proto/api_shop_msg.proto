@@ -66,15 +66,16 @@ message SkillItem {
 }
 //玩家皮肤
 message SkinUser {
-    int64 NFT = 1;      //NFTID
-    int32 SID = 2;      //皮肤ID
-    string SName = 3;   //皮肤名称
-    int32 Max = 4;      //最大体力
-    int32 Turn = 5;     //每局体力
-    int32 Cur = 6;      //档期体力
-    int64 Mker = 7;     //铸造者
-    int64 UTime = 8;    //上次恢复体力时间
-    int32 Skillid =9;   //技能ID
+    int64 USid = 1;     //用户皮肤
+    int32 SkinID = 2;   //皮肤ID
+    int32 Use = 3;      //是否使用，1为设置当前皮肤
+    string SName = 4;   //皮肤名称
+    int32 Max = 5;      //最大体力
+    int32 Turn = 6;     //每局体力
+    int32 Cur = 7;      //档期体力
+    int64 Mker = 8;     //铸造者
+    int64 UTime = 9;    //上次恢复体力时间
+    int32 Skillid = 10;   //技能ID
 }
 
 //http://xxx:xx/shop/shoplist
@@ -121,10 +122,8 @@ message ShopUserReq {
 message ShopUserResp {
     string Skills = 1;      //格式 [[商品id,数量int],[商品id,数量int],]
     string Frames = 2;      //格式 [[商品id,数量int],[商品id,数量int],]
-    string Prop = 3;        //商城皮肤，格式 [{SkinUser Json},{SkinUser Json},]
-    string Nftprop = 4;     //NFT皮肤，格式 [{SkinUser Json},{SkinUser Json},]
-    string PropFrag = 5;    //皮肤碎片，格式 [[碎片类型,数量int],[碎片类型,数量int],]
-    SkinUser Curprop = 6;   //当前皮肤
+    string Prop = 3;        //用户皮肤，格式 [{SkinUser Json},{SkinUser Json},]
+    string PropFrag = 4;    //皮肤碎片，格式 [[碎片类型,数量int],[碎片类型,数量int],]
 }
 
 //http://xxx:xx/shop/makeskin
