@@ -60,15 +60,16 @@ proto.msg.SkinUser.prototype.toObject = function(opt_includeInstance) {
  */
 proto.msg.SkinUser.toObject = function(includeInstance, msg) {
   var f, obj = {
-    nft: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    sid: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    sname: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    max: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    turn: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    cur: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    mker: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    utime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    skillid: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    usid: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    skinid: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    use: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    sname: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    max: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    turn: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    cur: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    mker: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    utime: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    skillid: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -107,37 +108,41 @@ proto.msg.SkinUser.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setNft(value);
+      msg.setUsid(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setSid(value);
+      msg.setSkinid(value);
       break;
     case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setUse(value);
+      break;
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setSname(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setMax(value);
       break;
-    case 5:
+    case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setTurn(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCur(value);
       break;
-    case 7:
+    case 8:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setMker(value);
       break;
-    case 8:
+    case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUtime(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSkillid(value);
       break;
@@ -170,66 +175,73 @@ proto.msg.SkinUser.prototype.serializeBinary = function() {
  */
 proto.msg.SkinUser.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getNft();
+  f = message.getUsid();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = message.getSid();
+  f = message.getSkinid();
   if (f !== 0) {
     writer.writeInt32(
       2,
       f
     );
   }
+  f = message.getUse();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
   f = message.getSname();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      4,
       f
     );
   }
   f = message.getMax();
   if (f !== 0) {
     writer.writeInt32(
-      4,
+      5,
       f
     );
   }
   f = message.getTurn();
   if (f !== 0) {
     writer.writeInt32(
-      5,
+      6,
       f
     );
   }
   f = message.getCur();
   if (f !== 0) {
     writer.writeInt32(
-      6,
+      7,
       f
     );
   }
   f = message.getMker();
   if (f !== 0) {
     writer.writeInt64(
-      7,
+      8,
       f
     );
   }
   f = message.getUtime();
   if (f !== 0) {
     writer.writeInt64(
-      8,
+      9,
       f
     );
   }
   f = message.getSkillid();
   if (f !== 0) {
     writer.writeInt32(
-      9,
+      10,
       f
     );
   }
@@ -237,137 +249,152 @@ proto.msg.SkinUser.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int64 NFT = 1;
+ * optional int64 USid = 1;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getNft = function() {
+proto.msg.SkinUser.prototype.getUsid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setNft = function(value) {
+proto.msg.SkinUser.prototype.setUsid = function(value) {
   jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * optional int32 SID = 2;
+ * optional int32 SkinID = 2;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getSid = function() {
+proto.msg.SkinUser.prototype.getSkinid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setSid = function(value) {
+proto.msg.SkinUser.prototype.setSkinid = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
- * optional string SName = 3;
+ * optional int32 Use = 3;
+ * @return {number}
+ */
+proto.msg.SkinUser.prototype.getUse = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.msg.SkinUser.prototype.setUse = function(value) {
+  jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional string SName = 4;
  * @return {string}
  */
 proto.msg.SkinUser.prototype.getSname = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
 proto.msg.SkinUser.prototype.setSname = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional int32 Max = 4;
+ * optional int32 Max = 5;
  * @return {number}
  */
 proto.msg.SkinUser.prototype.getMax = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/** @param {number} value */
-proto.msg.SkinUser.prototype.setMax = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
-};
-
-
-/**
- * optional int32 Turn = 5;
- * @return {number}
- */
-proto.msg.SkinUser.prototype.getTurn = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setTurn = function(value) {
+proto.msg.SkinUser.prototype.setMax = function(value) {
   jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional int32 Cur = 6;
+ * optional int32 Turn = 6;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getCur = function() {
+proto.msg.SkinUser.prototype.getTurn = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setCur = function(value) {
+proto.msg.SkinUser.prototype.setTurn = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
 /**
- * optional int64 Mker = 7;
+ * optional int32 Cur = 7;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getMker = function() {
+proto.msg.SkinUser.prototype.getCur = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setMker = function(value) {
+proto.msg.SkinUser.prototype.setCur = function(value) {
   jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
 /**
- * optional int64 UTime = 8;
+ * optional int64 Mker = 8;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getUtime = function() {
+proto.msg.SkinUser.prototype.getMker = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setUtime = function(value) {
+proto.msg.SkinUser.prototype.setMker = function(value) {
   jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
 /**
- * optional int32 Skillid = 9;
+ * optional int64 UTime = 9;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getSkillid = function() {
+proto.msg.SkinUser.prototype.getUtime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setSkillid = function(value) {
+proto.msg.SkinUser.prototype.setUtime = function(value) {
   jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional int32 Skillid = 10;
+ * @return {number}
+ */
+proto.msg.SkinUser.prototype.getSkillid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.msg.SkinUser.prototype.setSkillid = function(value) {
+  jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
