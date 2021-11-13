@@ -67,8 +67,8 @@ proto.msg.LoginResp.toObject = function(includeInstance, msg) {
     signname: jspb.Message.getFieldWithDefault(msg, 5, ""),
     sex: jspb.Message.getFieldWithDefault(msg, 6, 0),
     inviteid: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    gold: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    goldbig: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    gold: +jspb.Message.getFieldWithDefault(msg, 10, 0.0),
+    goldbig: +jspb.Message.getFieldWithDefault(msg, 11, 0.0),
     teamscore: jspb.Message.getFieldWithDefault(msg, 12, 0),
     token: jspb.Message.getFieldWithDefault(msg, 15, ""),
     gateinfo: jspb.Message.getFieldWithDefault(msg, 16, ""),
@@ -139,11 +139,11 @@ proto.msg.LoginResp.deserializeBinaryFromReader = function(msg, reader) {
       msg.setInviteid(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setGold(value);
       break;
     case 11:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setGoldbig(value);
       break;
     case 12:
@@ -245,15 +245,15 @@ proto.msg.LoginResp.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getGold();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f !== 0.0) {
+    writer.writeDouble(
       10,
       f
     );
   }
   f = message.getGoldbig();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f !== 0.0) {
+    writer.writeDouble(
       11,
       f
     );
@@ -402,32 +402,32 @@ proto.msg.LoginResp.prototype.setInviteid = function(value) {
 
 
 /**
- * optional int64 Gold = 10;
+ * optional double Gold = 10;
  * @return {number}
  */
 proto.msg.LoginResp.prototype.getGold = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 10, 0.0));
 };
 
 
 /** @param {number} value */
 proto.msg.LoginResp.prototype.setGold = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setProto3FloatField(this, 10, value);
 };
 
 
 /**
- * optional int64 GoldBig = 11;
+ * optional double GoldBig = 11;
  * @return {number}
  */
 proto.msg.LoginResp.prototype.getGoldbig = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 11, 0.0));
 };
 
 
 /** @param {number} value */
 proto.msg.LoginResp.prototype.setGoldbig = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  jspb.Message.setProto3FloatField(this, 11, value);
 };
 
 
