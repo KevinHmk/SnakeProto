@@ -21,7 +21,7 @@ enum SubLobbyMsgID {
 
 //用户登陆认证
 //MainLobby VerifyLogin
-//返回 VerifyLoginRet,RoomListRet,
+//返回 VerifyLoginRet,
 message MsgVerifyLogin
 {
       string  token  = 1;
@@ -86,7 +86,7 @@ message MsgVerifyLoginRet
   message MsgNotifyGoldChgRet
   {
     int64   UID             = 1;
-    int64  	Gold 			= 2;    //小币
-    int64   GoldBig         = 3;    //大币
+    double 	Gold 			= 2;    //小币
+    double  GoldBig         = 3;    //大币
     int64   TeamScore       = 4;    //段位分
   }

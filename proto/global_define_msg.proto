@@ -36,3 +36,10 @@ enum GameID {
     GameIDNone   = 0;
     GameIDSnake  = 1;
 }
+
+//金币变更类型
+enum EnGoldChgType {
+    EnGCNone = 0;
+    EnGCGame = 1;    //游戏
+    EnGCBuy = 2;     //买商品
+}

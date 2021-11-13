@@ -153,3 +153,17 @@ message FreshScoreResp {
     double   GoldBig         = 3;    //大币
     int64   TeamScore       = 4;    //段位分
 }
+
+//http://xxx:xx/game/roomlist
+//参数无
+//返回
+message RoomListResp {
+    message RoomItem
+    {
+        int32 Confid = 1;   //配置ID join room 使用
+        int32 Blind = 2;    //低分 (备用)
+        int32 Mod = 3;      // enum SnakeMode {ModeEnd= 0; //无尽模式ModeGold= 1; //赏金模式ModeTeam= 2; //团队模式}
+        int32 Status = 4;   //房间状态 1为开启，0为关闭
+    }
+    repeated RoomItem Items = 1;
+}

@@ -66,16 +66,15 @@ message SkillItem {
 }
 //玩家皮肤
 message SkinUser {
-    int64 USid = 1;     //用户皮肤
+    int32 USid = 1;     //用户皮肤id
     int32 SkinID = 2;   //皮肤ID
     int32 Use = 3;      //是否使用，1为设置当前皮肤
     string SName = 4;   //皮肤名称
     int32 Max = 5;      //最大体力
     int32 Turn = 6;     //每局体力
     int32 Cur = 7;      //档期体力
-    int64 Mker = 8;     //铸造者
-    int64 UTime = 9;    //上次恢复体力时间
-    int32 Skillid = 10;   //技能ID
+    int64 UTime = 8;    //上次恢复体力时间
+    int32 Skillid = 9;  //技能ID
 }
 
 //http://xxx:xx/shop/shoplist
@@ -151,5 +150,5 @@ message BuyGoodResp {
     int32 ShopId = 1;       //商品ID
     double GoldEnd = 2;     //最终小币
     double GoldBigEnd = 3;  //最终大币
-    ShopUserResp ShopMy = 4;  //我的商品
+    int32 ShopGoodNum = 4;  //数量
 }
