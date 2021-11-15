@@ -63,7 +63,7 @@ proto.msg.MsgSnakePlayer.toObject = function(includeInstance, msg) {
     uid: jspb.Message.getFieldWithDefault(msg, 1, 0),
     nickname: jspb.Message.getFieldWithDefault(msg, 2, ""),
     faceurl: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    frameid: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    frameid: jspb.Message.getFieldWithDefault(msg, 4, 0),
     signname: jspb.Message.getFieldWithDefault(msg, 5, ""),
     sex: jspb.Message.getFieldWithDefault(msg, 6, 0),
     gold: +jspb.Message.getFieldWithDefault(msg, 7, 0.0),
@@ -118,7 +118,7 @@ proto.msg.MsgSnakePlayer.deserializeBinaryFromReader = function(msg, reader) {
       msg.setFaceurl(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setFrameid(value);
       break;
     case 5:
@@ -192,8 +192,8 @@ proto.msg.MsgSnakePlayer.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getFrameid();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       4,
       f
     );
@@ -282,17 +282,17 @@ proto.msg.MsgSnakePlayer.prototype.setFaceurl = function(value) {
 
 
 /**
- * optional string FrameID = 4;
- * @return {string}
+ * optional int32 FrameID = 4;
+ * @return {number}
  */
 proto.msg.MsgSnakePlayer.prototype.getFrameid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.msg.MsgSnakePlayer.prototype.setFrameid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 

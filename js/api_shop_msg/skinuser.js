@@ -67,9 +67,8 @@ proto.msg.SkinUser.toObject = function(includeInstance, msg) {
     max: jspb.Message.getFieldWithDefault(msg, 5, 0),
     turn: jspb.Message.getFieldWithDefault(msg, 6, 0),
     cur: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    mker: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    utime: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    skillid: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    utime: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    skillid: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -107,7 +106,7 @@ proto.msg.SkinUser.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setUsid(value);
       break;
     case 2:
@@ -136,13 +135,9 @@ proto.msg.SkinUser.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 8:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setMker(value);
-      break;
-    case 9:
-      var value = /** @type {number} */ (reader.readInt64());
       msg.setUtime(value);
       break;
-    case 10:
+    case 9:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSkillid(value);
       break;
@@ -177,7 +172,7 @@ proto.msg.SkinUser.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getUsid();
   if (f !== 0) {
-    writer.writeInt64(
+    writer.writeInt32(
       1,
       f
     );
@@ -224,24 +219,17 @@ proto.msg.SkinUser.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMker();
+  f = message.getUtime();
   if (f !== 0) {
     writer.writeInt64(
       8,
       f
     );
   }
-  f = message.getUtime();
-  if (f !== 0) {
-    writer.writeInt64(
-      9,
-      f
-    );
-  }
   f = message.getSkillid();
   if (f !== 0) {
     writer.writeInt32(
-      10,
+      9,
       f
     );
   }
@@ -249,7 +237,7 @@ proto.msg.SkinUser.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int64 USid = 1;
+ * optional int32 USid = 1;
  * @return {number}
  */
 proto.msg.SkinUser.prototype.getUsid = function() {
@@ -354,47 +342,32 @@ proto.msg.SkinUser.prototype.setCur = function(value) {
 
 
 /**
- * optional int64 Mker = 8;
+ * optional int64 UTime = 8;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getMker = function() {
+proto.msg.SkinUser.prototype.getUtime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setMker = function(value) {
+proto.msg.SkinUser.prototype.setUtime = function(value) {
   jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
 /**
- * optional int64 UTime = 9;
+ * optional int32 Skillid = 9;
  * @return {number}
  */
-proto.msg.SkinUser.prototype.getUtime = function() {
+proto.msg.SkinUser.prototype.getSkillid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
 /** @param {number} value */
-proto.msg.SkinUser.prototype.setUtime = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
-};
-
-
-/**
- * optional int32 Skillid = 10;
- * @return {number}
- */
-proto.msg.SkinUser.prototype.getSkillid = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
-};
-
-
-/** @param {number} value */
 proto.msg.SkinUser.prototype.setSkillid = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 

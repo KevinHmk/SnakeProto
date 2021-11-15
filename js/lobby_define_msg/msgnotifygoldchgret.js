@@ -61,8 +61,8 @@ proto.msg.MsgNotifyGoldChgRet.prototype.toObject = function(opt_includeInstance)
 proto.msg.MsgNotifyGoldChgRet.toObject = function(includeInstance, msg) {
   var f, obj = {
     uid: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    gold: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    goldbig: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    gold: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    goldbig: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
     teamscore: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
@@ -105,11 +105,11 @@ proto.msg.MsgNotifyGoldChgRet.deserializeBinaryFromReader = function(msg, reader
       msg.setUid(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setGold(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setGoldbig(value);
       break;
     case 4:
@@ -153,15 +153,15 @@ proto.msg.MsgNotifyGoldChgRet.serializeBinaryToWriter = function(message, writer
     );
   }
   f = message.getGold();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f !== 0.0) {
+    writer.writeDouble(
       2,
       f
     );
   }
   f = message.getGoldbig();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f !== 0.0) {
+    writer.writeDouble(
       3,
       f
     );
@@ -192,32 +192,32 @@ proto.msg.MsgNotifyGoldChgRet.prototype.setUid = function(value) {
 
 
 /**
- * optional int64 Gold = 2;
+ * optional double Gold = 2;
  * @return {number}
  */
 proto.msg.MsgNotifyGoldChgRet.prototype.getGold = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
 };
 
 
 /** @param {number} value */
 proto.msg.MsgNotifyGoldChgRet.prototype.setGold = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 
 /**
- * optional int64 GoldBig = 3;
+ * optional double GoldBig = 3;
  * @return {number}
  */
 proto.msg.MsgNotifyGoldChgRet.prototype.getGoldbig = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
 /** @param {number} value */
 proto.msg.MsgNotifyGoldChgRet.prototype.setGoldbig = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 

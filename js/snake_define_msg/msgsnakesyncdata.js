@@ -60,7 +60,8 @@ proto.msg.MsgSnakeSyncData.prototype.toObject = function(opt_includeInstance) {
  */
 proto.msg.MsgSnakeSyncData.toObject = function(includeInstance, msg) {
   var f, obj = {
-    snakelen: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    snakelen: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    killnum: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -101,6 +102,10 @@ proto.msg.MsgSnakeSyncData.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSnakelen(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKillnum(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -137,6 +142,13 @@ proto.msg.MsgSnakeSyncData.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getKillnum();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -152,6 +164,21 @@ proto.msg.MsgSnakeSyncData.prototype.getSnakelen = function() {
 /** @param {number} value */
 proto.msg.MsgSnakeSyncData.prototype.setSnakelen = function(value) {
   jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * optional int32 KillNum = 2;
+ * @return {number}
+ */
+proto.msg.MsgSnakeSyncData.prototype.getKillnum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.msg.MsgSnakeSyncData.prototype.setKillnum = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
